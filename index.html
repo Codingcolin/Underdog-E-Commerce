@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>Document</title>
 </head>
 <body>
-    <div> Hello World</div>
-    
+
+    <div>
+        <p id = "time"></p>
+    </div>
+    <script>
+     function myCurrentTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        document.getElementById("time").innerHTML = timeString;
+     }    
+     setInterval(myCurrentTime, 1000);
+        //console.log(timeString); // Output: e.g., "10:30:45 AM"
+    </script>
 </body>
 </html>
