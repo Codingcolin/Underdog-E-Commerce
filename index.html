@@ -10,15 +10,23 @@
 
     <div>
         <p id = "time"></p>
+        <p id = "open"></p>
+        
     </div>
     <script>
      function myCurrentTime() {
         const now = new Date();
         const timeString = now.toLocaleTimeString();
         document.getElementById("time").innerHTML = timeString;
+        if(now.getHours() > 9 && now.getHours() < 17) {
+            document.getElementById("open").innerHTML = "Open";
+        } else {
+            document.getElementById("open").innerHTML = "Closed";
+        }
+         console.log(now.getHours())
      }    
      setInterval(myCurrentTime, 1000);
-        //console.log(timeString); // Output: e.g., "10:30:45 AM"
+           
     </script>
 </body>
 </html>
