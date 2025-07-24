@@ -10,15 +10,45 @@
 
     <div>
         <p id = "time"></p>
+        <p id = "open"></p>
+       
     </div>
     <script>
      function myCurrentTime() {
+        const schedule = {
+            1: [9,17],
+            2: [9,17],
+            3: [9,17],
+            4: [9,17],
+            5: [10,16],
+            6: [13,23],
+            0: [0,0]
+        };
+        
+
+            //How to add minutes to this logic
+            // How to add multiple open and closing periods per day
+
         const now = new Date();
+        const dayOfWeek = now.getDay();
         const timeString = now.toLocaleTimeString();
         document.getElementById("time").innerHTML = timeString;
-     }    
+        console.log(now.getDay());
+       // document.getElementById("open").innerHTML = schedule[now.getDay()];
+        //Get the current day
+        //Then get the current and compare that versus what the open hours are
+        // if(schedule[now.getDay()] && now.getHours() > 9 && now.getHours() < 17)
+            //schedule[0][0]
+           // schedule[0][1]
+         if(now.getHours() > schedule[now.getDay()][0] && now.getHours() < schedule[now.getDay()][1]) {
+            document.getElementById("open").innerHTML = "Open";
+        } else {
+            document.getElementById("open").innerHTML = "Closed";
+        }
+     } 
+       
      setInterval(myCurrentTime, 1000);
-        //console.log(timeString); // Output: e.g., "10:30:45 AM"
+    
     </script>
 </body>
 </html>
